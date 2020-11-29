@@ -1,0 +1,23 @@
+{
+  "name": "lightning-sql",
+  "version": "1.0.0",
+  "description": "SQL DBMS written fully in JavaScript - Lexer, Parser, Query Optimizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dusanstanojeviccs/lightning-sql.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dusanstanojeviccs/lightning-sql/issues"
+  },
+  "homepage": "https://github.com/dusanstanojeviccs/lightning-sql#readme",
+  "devDependencies": {
+    "webpack": "^5.9.0"
+  }
+}
