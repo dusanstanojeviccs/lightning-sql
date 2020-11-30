@@ -100,7 +100,9 @@ const TokenType = {
 	GTEQ: "GTEQ",
 	NEQ: "NEQ",
 	STRING: "STRING",
-	NUMBER: "NUMBER"
+	NUMBER: "NUMBER",
+
+	EOF: "END-OF-FILE"
 };
 
 TokenType.KEYWORDS = [
