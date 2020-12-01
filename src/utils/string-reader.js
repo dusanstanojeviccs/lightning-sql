@@ -18,7 +18,9 @@ export default class StringReader {
 	}
 
 	getChar() {
-		if (this.position == this.str.length) {
+		// we can read EOF multiple times
+		if (this.position >= this.str.length) {
+			this.position++
 			return EOF;
 		}
 		return this.str.charAt(this.position++);

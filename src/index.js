@@ -1,6 +1,8 @@
 import StringReader from './utils/string-reader';
 import Lexer from './lang/lexer';
 
+export {Lexer};
+
 export function testStringReader(str) {
 	let sr = new StringReader(str);
 

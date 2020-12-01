@@ -1,4 +1,6 @@
 const TokenType = {
+	SELECT: "SELECT",
+	FROM: "FROM",
 	UPDATE: "UPDATE",
 	SET: "SET",
 	WHERE: "WHERE",
@@ -106,6 +108,8 @@ const TokenType = {
 };
 
 TokenType.KEYWORDS = [
+	TokenType.SELECT,
+	TokenType.FROM,
 	TokenType.UPDATE,
 	TokenType.SET,
 	TokenType.WHERE,
