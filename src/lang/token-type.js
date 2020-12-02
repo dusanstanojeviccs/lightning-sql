@@ -85,6 +85,7 @@ const TokenType = {
 	AVG: "AVG",
 	ALGORITHM: "ALGORITHM",
 	ROLLBACK: "ROLLBACK",
+	TRANSACTION: "TRANSACTION",
 	AND: "AND",
 	OR: "OR",
 	// everything above this line is a keyword
@@ -195,7 +196,8 @@ TokenType.KEYWORDS = [
 	TokenType.ALGORITHM,
 	TokenType.ROLLBACK,
 	TokenType.AND,
-	TokenType.OR
+	TokenType.OR,
+	TokenType.TRANSACTION
 ];
 
 export default TokenType;
