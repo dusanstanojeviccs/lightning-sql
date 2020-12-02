@@ -6,7 +6,7 @@ Plan: SQL DBMS written fully in JavaScript
 npm lib setup - 0%
 tests setup - 0%
 cdn setup - 0% 
-Lexer - 98%
+Lexer - 100%
 Parser - 0%
 Query Optimizer - 0%
 DBMS Engine - 0%
@@ -42,8 +42,6 @@ The output of the readAllTokens method defined in the Lexer will be a list of to
 	{line: 1, type: "END-OF-FILE", value: ""}
 ]
 ```
-
-TODO: add from_char to_char in the actual parsed token, this will help with using the library for building IDEs and code editors
 
 # Compile
 npm run-script build

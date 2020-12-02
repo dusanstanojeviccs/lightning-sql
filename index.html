@@ -14,6 +14,10 @@
 
 		console.log("Test 3");
 		console.log(new lightningSql.Lexer("CREATE TABLE demo_table (id int AUTO_INCREMENT);").readAllTokens());
+
+
+		console.log("Test 4");
+		console.log(new lightningSql.Lexer('UPDATE demo_table SET name = "harry"').readAllTokens());
 	</script>
 </body>
 </html>

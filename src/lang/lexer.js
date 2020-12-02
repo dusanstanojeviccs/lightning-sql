@@ -53,6 +53,7 @@ export default class Lexer {
 	// \_  A _ character
 
 	getStringToken() {
+		let from = this.input.getPosition();
 		let startChar = this.input.getChar();
 
 		if (startChar != "'" && startChar != '"') {
@@ -87,7 +88,7 @@ export default class Lexer {
 			}
 		}
 
-		return new Token(this.line, TokenType.STRING, this.value);
+		return new Token(this.line, TokenType.STRING, this.value, from, this.input.getPosition());
 	}
 
 	// starts with a letter or _ followed by 
@@ -95,6 +96,7 @@ export default class Lexer {
 	// regex definition (`(letter|_)(letter|_|digit)*`)|((letter|_)(letter|_|digit)*)
 	//
 	getIdOrKeywordToken() {
+		let from = this.input.getPosition();
 		let startChar = this.input.getChar();
 
 		if (startChar != "`") {
@@ -125,15 +127,16 @@ export default class Lexer {
 			if (keywordPosition >= 0) {
 				const keyWord = TokenType.KEYWORDS[keywordPosition];
 
-				return new Token(this.line, keyWord, keyWord);	
+				return new Token(this.line, keyWord, keyWord, this.value, from, this.input.getPosition());	
 			}
 		}
 
-		return new Token(this.line, TokenType.ID, this.value);
+		return new Token(this.line, TokenType.ID, this.value, from, this.input.getPosition());
 	}
 
 	// regex definition (digit(digit)*.digit(digit*))|(digit(digit)*)
 	getNumberToken() {
+		let from = this.input.getPosition();
 		// we read all before the dot first
 		while (true) {
 			let read = this.input.getChar();
@@ -171,7 +174,7 @@ export default class Lexer {
 			syntaxError();
 		}
 
-		return new Token(this.line, TokenType.NUMBER, this.value);
+		return new Token(this.line, TokenType.NUMBER, this.value, from, this.input.getPosition());
 	}
 
 	getToken() {
@@ -187,7 +190,7 @@ export default class Lexer {
 			read = this.input.getChar();
 		}
 		if (read == this.input.EOF) {
-			return new Token(this.line, TokenType.EOF, "");
+			return new Token(this.line, TokenType.EOF, "", this.input.getPosition());
 		}
 		this.value = "";
 		
@@ -195,50 +198,50 @@ export default class Lexer {
 
 		switch(read) {
 			case "=":
-				return new Token(this.line, TokenType.EQ, "=");
+				return new Token(this.line, TokenType.EQ, "=", this.input.getPosition());
 				break;
 			case "<":
 				nextChar = this.input.getChar();
 				if (nextChar == "=") {
-					return new Token(this.line, TokenType.LTEQ, "<=");
+					return new Token(this.line, TokenType.LTEQ, "<=", this.input.getPosition(), this.input.getPosition() + 1);
 				} if (nextChar == ">") {
-					return new Token(this.line, TokenType.NEQ, "<>");
+					return new Token(this.line, TokenType.NEQ, "<>", this.input.getPosition(), this.input.getPosition() + 1);
 				} else {
 					this.input.ungetChar();
 				}
-				return new Token(this.line, TokenType.LT, "<");
+				return new Token(this.line, TokenType.LT, "<", this.input.getPosition());
 				break;
 			case ">":
 				nextChar = this.input.getChar();
 				if (nextChar == "=") {
-					return new Token(this.line, TokenType.GTEQ, ">=");
+					return new Token(this.line, TokenType.GTEQ, ">=", this.input.getPosition(), this.input.getPosition() + 1);
 				} else {
 					this.input.ungetChar();
 				}
-				return new Token(this.line, TokenType.GT, ">");
+				return new Token(this.line, TokenType.GT, ">", this.input.getPosition());
 				break;
 			case "(":
-				return new Token(this.line, TokenType.LBRACE, "(");
+				return new Token(this.line, TokenType.LBRACE, "(", this.input.getPosition());
 				break;
 			case ")":
-				return new Token(this.line, TokenType.RBRACE, ")");
+				return new Token(this.line, TokenType.RBRACE, ")", this.input.getPosition());
 				break;
 			case ";":
-				return new Token(this.line, TokenType.SEMICOLON, ";");
+				return new Token(this.line, TokenType.SEMICOLON, ";", this.input.getPosition());
 				break;
 			case ",":
-				return new Token(this.line, TokenType.COMMA, ",");
+				return new Token(this.line, TokenType.COMMA, ",", this.input.getPosition());
 				break;
 			case ".":
-				return new Token(this.line, TokenType.PERIOD, ".");
+				return new Token(this.line, TokenType.PERIOD, ".", this.input.getPosition());
 				break;
 			case "*":
-				return new Token(this.line, TokenType.STAR, "*");
+				return new Token(this.line, TokenType.STAR, "*", this.input.getPosition());
 				break;
 			case "!":
 				nextChar = this.input.getChar();
 				if (nextChar == "=") {
-					return new Token(this.line, TokenType.NEQ, "!=");
+					return new Token(this.line, TokenType.NEQ, "!=", this.input.getPosition(), this.input.getPosition() + 1);
 				}
 				
 				syntaxError(this.input.getPosition());
