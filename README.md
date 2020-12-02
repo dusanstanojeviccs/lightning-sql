@@ -486,5 +486,6 @@ BOOL_CONNECTIVE -> lbrace|id|number|string|null
 TABLES -> ┤|where|set|join|on|rbrace|semicolon
 ```
 </details>
+
 # Compile
 npm run-script build
