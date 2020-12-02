@@ -75,7 +75,7 @@ The output of the readAllTokens method defined in the Lexer will be a list of to
 
 
 <details>
-  <summary>Click to see the Tokens</summary>
+  <summary>Expand the Tokens</summary>
 
 ```
 SELECT
@@ -187,7 +187,7 @@ NUMBER
 
 
 <details>
-  <summary>Click to see the Syntax</summary>
+  <summary>Expand the Syntax</summary>
 
 ```
 PROGRAM -> SINGLE_STMT
@@ -251,6 +251,7 @@ COLUMN_DEF -> id TYPE_KEYWORD SETTINGS_LIST
 SETTINGS_STMT -> id equal id
 SETTINGS_LIST -> SETTINGS_STMT
 SETTINGS_LIST -> SETTINGS_STMT comma SETTINGS_LIST
+SETTINGS_STMT -> ε
 
 COLUMN_DEF_LIST -> COLUMN_DEF
 COLUMN_DEF_LIST -> COLUMN_DEF comma COLUMN_DEF_LIST
@@ -308,7 +309,7 @@ TABLES -> lbrace TABLES rbrace
 </details>
 
 <details>
-  <summary>Click to see the Sytax for TYPE_KEYWORD</summary>
+  <summary>Expand Sytax for TYPE_KEYWORD</summary>
   
 ```
 TYPE_KEYWORD -> select
@@ -406,13 +407,84 @@ TYPE_KEYWORD -> transaction
 
 
 
-First set:
+<details>
+  <summary>Expand the First Set</summary>
+  
 ```
+PROGRAM -> begin|semicolon|select|update|delete|create|drop|use|alter|insert|id
+SINGLE_STMT -> select|update|delete|create|drop|use|alter|insert|id
+STMT -> semicolon|select|update|delete|create|drop|use|alter|insert|id
+STMT_LIST -> semicolon|select|update|delete|create|drop|use|alter|insert|id
+SELECT_STMT -> select
+UPDATE_STMT -> update
+DELETE_STMT -> delete
+DROP_STMT -> drop
+CREATE_STMT -> create
+CREATE_DB_STMT -> create
+USE_DB_STMT -> use
+ALTER_TABLE_STMT -> alter
+INSERT_STMT -> insert
+INSERT_VALUES -> lbrace
+ALTER_MODIFICATION_LIST -> add|remove|change
+ALTER_MODIFICATION -> add|remove|change
+COLUMN_DEF -> id
+SETTINGS_STMT -> id|ε
+SETTINGS_LIST -> id|ε|comma
+COLUMN_DEF_LIST -> id
+ASSIGNMENT_STMT -> id
+ASSIGNMENT_LIST -> id
+SELECT_VALUE_LIST -> star|id|number|string|null|lbrace
+INSERT_VALUE_LIST -> id|number|string|null|lbrace
+VALUE -> id|number|string|null|lbrace
+COMPLEX_ID -> id
+METHOD_CALL -> id
+EXPRESSION -> lbrace|id|number|string|null
+COMPARRISON -> id|number|string|null|lbrace
+COMPARRISON_CONNECTIVE -> GT|LT|LTEQ|GTEQ|EQUAL|NEQ
+BOOL_CONNECTIVE -> AND|OR|XOR
+TABLES -> id|SELECT_QUERY|lbrace
+TYPE_KEYWORD -> select|from|update|set|where|insert|into|create|database|table|use|drop|if|exists|procedure|begin|end|definer|having|ount|values|join|left|right|full|outer|order|by|asc|dsc|as|auto_increment|in|like|view|xor|null|random|int|bigint|bit|bool|btree|cascade|case|charset|commit|constraint|mediumblob|mediumint|mediumtext|smallint|start|time|timestamp|timestampadd|timestampdiff|tinyblob|tinyint|tinytext|varchar|date|datetime|day|day_hour|day_microsecond|day_minute|day_second|hour|hour_microsecond|hour_minute|hour_second|minute|minute_microsecond|minute_second|second|second_microsecond|utc_date|utc_time|utc_timestamp|replace|engine|avg|algorithm|rollback|and|or|transaction
 ```
+</details>
 
-Follow set:
-```
-```
 
+<details>
+  <summary>Expand the Follow Set</summary>
+ 
+```
+PROGRAM -> ┤
+SINGLE_STMT -> ┤|semicolon
+STMT -> ┤|end|semicolon|select|update|delete|create|drop|use|alter|insert|id
+STMT_LIST -> end
+SELECT_STMT -> ┤|semicolon
+UPDATE_STMT -> ┤|semicolon
+DELETE_STMT -> ┤|semicolon
+DROP_STMT -> ┤|semicolon
+CREATE_STMT -> ┤|semicolon
+CREATE_DB_STMT -> ┤|semicolon
+USE_DB_STMT -> ┤|semicolon
+ALTER_TABLE_STMT -> ┤|semicolon
+INSERT_STMT -> ┤|semicolon
+INSERT_VALUES -> ┤|comma|semicolon
+ALTER_MODIFICATION_LIST -> ┤|semicolon
+ALTER_MODIFICATION -> ┤|comma|semicolon
+COLUMN_DEF -> ┤|comma|rbrace|semicolon
+SETTINGS_STMT -> ┤|comma|rbrace|semicolon
+SETTINGS_LIST -> ┤|comma|rbrace|semicolon
+COLUMN_DEF_LIST -> rbrace
+ASSIGNMENT_STMT -> ┤|where|comma|semicolon
+ASSIGNMENT_LIST -> where|┤|semicolon
+SELECT_VALUE_LIST -> from|┤|asc|desc|semicolon
+INSERT_VALUE_LIST -> rbrace
+VALUE -> from|┤|asc|desc|comma|rbrace|GT|LT|LTEQ|GTEQ|EQUAL|NEQ|order|semicolon|AND|OR|XOR|where|set|join|on
+COMPLEX_ID -> where|equal|┤|from|asc|desc|comma|rbrace|dot|semicolon|GT|LT|LTEQ|GTEQ|EQUAL|NEQ|order|AND|OR|XOR|set|join|on
+METHOD_CALL -> from|┤|asc|desc|comma|rbrace|GT|LT|LTEQ|GTEQ|EQUAL|NEQ|order|semicolon|AND|OR|XOR|where|set|join|on
+EXPRESSION -> ┤|order|AND|OR|XOR|rbrace|where|set|join|on|semicolon
+COMPARRISON -> ┤|order|rbrace|AND|OR|XOR|where|set|join|on|semicolon
+COMPARRISON_CONNECTIVE -> id|number|string|null|lbrace
+BOOL_CONNECTIVE -> lbrace|id|number|string|null
+TABLES -> ┤|where|set|join|on|rbrace|semicolon
+```
+</details>
 # Compile
 npm run-script build
