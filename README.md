@@ -45,13 +45,13 @@ Lexer takes in the SQL query in the string format and outputs a list of tokens.
 
 You can import the library from the compiled file in the dist directory
 
-```
+```xml
 <script src="./dist/lightning-sql.js"></script>
 ```
 
 To use the library create the lexer object and read it's tokens
 
-```
+```javascript
 
 let lxr = new lightningSql.Lexer("SELECT * FROM demo_table");
 
@@ -59,7 +59,7 @@ console.log(lxr.readAllTokens());
 ```
 
 The output of the readAllTokens method defined in the Lexer will be a list of tokens:
-```
+```javascript
 [
 	{line: 1, type: "SELECT", value: "SELECT"},
 	{line: 1, type: "STAR", value: "*"},
