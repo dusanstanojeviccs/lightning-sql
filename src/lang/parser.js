@@ -24,9 +24,25 @@ export default class Lexer {
 			console.log("parseProgram");
 		}
 
-		let node = new AstNode();
+		let node = new AstNode(AstNodeTypes.PROGRAM);
 
-		
+		let token = lexer.getToken();
+
+		if (token in first of SINGLE_STMT) {
+			lexer.ungetToken();
+			
+			node.children = [parseSingleStmt()];
+
+			token = lexer.getToken();
+
+			if (token.type != TokenType.SEMICOLON || token.type != TokenType.SEMICOLON) {
+				syntaxError(token.from);
+			}
+		} if (token.type == TokenType.BEGIN) {
+			begin.transaction.id.semicolon.STMT_LIST.end.transaction.id.semicolon
+		} else {
+			syntaxError(token.from);
+		}
 
 		return node;
 	}
