@@ -2,15 +2,24 @@ import Token from './token';
 import TokenType from './token-type';
 import Lexer from './lexer';
 import AstNode from './ast-node';
-import AstNodeTypes from './ast-node-types';
+import RuleLang from './rule-lang';
 
-const syntaxError = (position) => {
-	throw new SyntaxError("Error on char " + position); 
+const firstSet = RuleLang.firstSet;
+const followSet = RuleLang.followSet;
+const rules = RuleLang.rules;
+const terminals = RuleLang.terminals;
+const nonTerminals = RuleLang.nonTerminals;
+
+const syntaxError = (text) => {
+	throw new SyntaxError("Syntax error near " + text); 
 }
 
-export default class Lexer {
-	constructor(query, config) {
+const langConfig = new RuleLang()
+
+export default class Parser {
+	constructor(lexer, config) {
 		this.lexer = lexer;
+		
 		if (config) {
 			this.logMethods = config.logMethods;
 		} else {
@@ -20,190 +29,109 @@ export default class Lexer {
 
 	
 	parseProgram() {
-		if (this.logMethods) {
-			console.log("parseProgram");
-		}
+		// we start by parsing the program, finding the correct rule to parse and performing the next parse
+		let programNode = new AstNode("PROGRAM");
 
-		let node = new AstNode(AstNodeTypes.PROGRAM);
+		parseRule(programNode);
 
-		let token = lexer.getToken();
+		return programNode;
+	}
 
-		if (token in first of SINGLE_STMT) {
-			lexer.ungetToken();
-			
-			node.children = [parseSingleStmt()];
+	parseRule(node) {
+		let applicableRules = [];
 
-			token = lexer.getToken();
-
-			if (token.type != TokenType.SEMICOLON || token.type != TokenType.SEMICOLON) {
-				syntaxError(token.from);
+		rules.forEach(rule => {
+			if (rule.lhs == node.type) {
+				applicableRules.push(rule);
 			}
-		} if (token.type == TokenType.BEGIN) {
-			begin.transaction.id.semicolon.STMT_LIST.end.transaction.id.semicolon
+		});
+
+		// we have a subset of rules
+		// now we can check each rules first elements first set 
+		// to see which one we can apply
+
+		let token = this.lexer.getToken();
+
+		let appliedRule;
+
+		applicableRules.forEach(rule => {
+			if (!appliedRule) {
+				let firstSetOfTheRule = [];
+
+				for (let i = 0; i < rule.rhs.length; i++) {
+					if (terminals.indexOf(rule.rhs[i])) {
+						firstSetOfTheRule.push(rule.rhs[i]);
+						break;
+					} else {
+						let currentFirstSet = firstSet[rule.rhs[i]];
+
+						currentFirstSet.forEach(element => {
+							if (element != "epsilon") {
+								firstSetOfTheRule.push(element)
+							}
+						});
+
+						if (currentFirstSet.indexOf("epsilon") < 0) {
+							break;
+						}
+					}
+				}
+
+				if (firstSetOfTheRule.indexOf(token.type.toLowerCase())) {
+					appliedRule = rule;
+				}
+			}
+		});
+
+		// here we need to recursively parse the rule
+
+		if (appliedRule) {
+			this.lexer.ungetToken(token);
+
+			for (let i = 0; i < appliedRule.rhs.length; i++) {
+				let elem = appliedRule.rhs[i];
+
+				token = this.lexer.getToken();
+
+				let tokenTypeLowerCase = token.type.toLowerCase();
+
+				if (nonTerminals.indexOf(tokenTypeLowerCase) > -1) {
+					if (firstSet[elem].indexOf(token.type.toLowerCase()) > -1) {
+						// we found the element
+						// we need to create a new node to parse it
+
+						this.lexer.ungetToken(token);
+						let newNode = new AstNode(elem);
+
+						let customParserMethod = "parse" + elem.capitilize();
+
+						if (this[customParserMethod]) {
+							this[customParserMethod](newNode).bind(this);
+						} else {
+							parseRule(newNode);
+						}
+
+						node.children.push(newNode);
+					} else if (firstSet[elem].indexOf("epsilon") > -1 && followSet[elem].indexOf(token)) { 
+						// does this element support epsilon
+						// we are basically skipping this by applying the rule goes to epsilon
+						// so nothing to do here
+						continue; // this continues the loop through rhs
+					} else {
+						// this is a problem and a syntax exception
+						syntaxError(token.value);
+					}
+				} else {
+					// it's a terminal, let's check if it matches
+					if (elem == token.type) {
+						node.children.push(new AstNode(token.type, token.value));
+					} else {
+						syntaxError(token.value);
+					}
+				}
+			}
 		} else {
-			syntaxError(token.from);
+			syntaxError(token.value);
 		}
-
-		return node;
-	}
-	parseSingleStmt() {
-		if (this.logMethods) {
-			console.log("parseSingleStmt");
-		}
-	}
-	parseStmt() {
-		if (this.logMethods) {
-			console.log("parseStmt");
-		}
-	}
-	parseStmtList() {
-		if (this.logMethods) {
-			console.log("parseStmtList");
-		}
-	}
-	parseSelectStmt() {
-		if (this.logMethods) {
-			console.log("parseSelectStmt");
-		}
-	}
-	parseUpdateStmt() {
-		if (this.logMethods) {
-			console.log("parseUpdateStmt");
-		}
-	}
-	parseDeleteStmt() {
-		if (this.logMethods) {
-			console.log("parseDeleteStmt");
-		}
-	}
-	parseDropStmt() {
-		if (this.logMethods) {
-			console.log("parseDropStmt");
-		}
-	}
-	parseCreateStmt() {
-		if (this.logMethods) {
-			console.log("parseCreateStmt");
-		}
-	}
-	parseCreateDbStmt() {
-		if (this.logMethods) {
-			console.log("parseCreateDbStmt");
-		}
-	}
-	parseUseDbStmt() {
-		if (this.logMethods) {
-			console.log("parseUseDbStmt");
-		}
-	}
-	parseAlterTableStmt() {
-		if (this.logMethods) {
-			console.log("parseAlterTableStmt");
-		}
-	}
-	parseInsertStmt() {
-		if (this.logMethods) {
-			console.log("parseInsertStmt");
-		}
-	}
-	parseInsertValues() {
-		if (this.logMethods) {
-			console.log("parseInsertValues");
-		}
-	}
-	parseAlterModificationList() {
-		if (this.logMethods) {
-			console.log("parseAlterModificationList");
-		}
-	}
-	parseAlterModification() {
-		if (this.logMethods) {
-			console.log("parseAlterModification");
-		}
-	}
-	parseColumnDef() {
-		if (this.logMethods) {
-			console.log("parseColumnDef");
-		}
-	}
-	parseSettingsStmt() {
-		if (this.logMethods) {
-			console.log("parseSettingsStmt");
-		}
-	}
-	parseSettingsList() {
-		if (this.logMethods) {
-			console.log("parseSettingsList");
-		}
-	}
-	parseColumnDefList() {
-		if (this.logMethods) {
-			console.log("parseColumnDefList");
-		}
-	}
-	parseAssignmentStmt() {
-		if (this.logMethods) {
-			console.log("parseAssignmentStmt");
-		}
-	}
-	parseAssignmentList() {
-		if (this.logMethods) {
-			console.log("parseAssignmentList");
-		}
-	}
-	parseSelectValueList() {
-		if (this.logMethods) {
-			console.log("parseSelectValueList");
-		}
-	}
-	parseInsertValueList() {
-		if (this.logMethods) {
-			console.log("parseInsertValueList");
-		}
-	}
-	parseValue() {
-		if (this.logMethods) {
-			console.log("parseValue");
-		}
-	}
-	parseComplexId() {
-		if (this.logMethods) {
-			console.log("parseComplexId");
-		}
-	}
-	parseMethodCall() {
-		if (this.logMethods) {
-			console.log("parseMethodCall");
-		}
-	}
-	parseExpression() {
-		if (this.logMethods) {
-			console.log("parseExpression");
-		}
-	}
-	parseComparrison() {
-		if (this.logMethods) {
-			console.log("parseComparrison");
-		}
-	}
-	parseComparrisonConnective() {
-		if (this.logMethods) {
-			console.log("parseComparrisonConnective");
-		}
-	}
-	parseBoolConnective() {
-		if (this.logMethods) {
-			console.log("parseBoolConnective");
-		}
-	}
-	parseTables() {
-		if (this.logMethods) {
-			console.log("parseTables");
-		}
-	}
-
-
-	readAst() {
-		return this.parseProgram();
 	}
 }

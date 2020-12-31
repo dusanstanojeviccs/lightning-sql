@@ -235,6 +235,9 @@ ALTER_TABLE_STMT -> alter table id ALTER_MODIFICATION_LIST
 INSERT_STMT -> insert into id values INSERT_VALUES
 INSERT_STMT -> insert into id lbrace ID_LIST rbrace values INSERT_VALUES
 
+ID_LIST -> ID
+ID_LIST -> ID comma ID_LIST
+
 INSERT_VALUES -> lbrace INSERT_VALUE_LIST rbrace
 INSERT_VALUES -> INSERT_VALUES comma INSERT_VALUES
 

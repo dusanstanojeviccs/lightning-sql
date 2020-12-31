@@ -1,7 +1,12 @@
 import StringReader from './utils/string-reader';
 import Lexer from './lang/lexer';
+import RULES from './lang/rules';
+import RuleLang from './lang/rule-lang';
+// import Parser from './lang/parser';
+
 
 export {Lexer};
+export {RULES};
 
 export function testStringReader(str) {
 	let sr = new StringReader(str);
