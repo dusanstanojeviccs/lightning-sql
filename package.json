@@ -22,6 +22,6 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "first-follow-solver": "^1.0.1"
+    "first-follow-solver": "^1.0.5"
   }
 }
