@@ -124,7 +124,7 @@ DELETE_STMT -> delete from COMPLEX_ID where EXPRESSION
 
 DROP_STMT -> drop database id
 
-CREATE_STMT -> create table id lbrace COLUMN_DEF_LIST rbrace SETTINGS_LIST;
+CREATE_STMT -> create table id lbrace COLUMN_DEF_LIST rbrace SETTINGS_LIST
 
 CREATE_DB_STMT -> create database id
 
