@@ -6,20 +6,11 @@
 </head>
 <body>
 	<script type="text/javascript">
-		console.log(lightningSql.RULES);
+		let lxr = new lightningSql.Lexer("SELECT * FROM demo_table");
 
-		console.log("Test 1");
-		console.log(new lightningSql.Lexer("SELECT * FROM demo_table").readAllTokens());
+		let parser = new lightningSql.Parser(lxr, {logMethods: true});
 
-		console.log("Test 2");
-		console.log(new lightningSql.Lexer("UPDATE demo_table SET names = 'demo name' WHERE id = 20").readAllTokens());
-
-		console.log("Test 3");
-		console.log(new lightningSql.Lexer("CREATE TABLE demo_table (id int AUTO_INCREMENT);").readAllTokens());
-
-
-		console.log("Test 4");
-		console.log(new lightningSql.Lexer('UPDATE demo_table SET name = "harry"').readAllTokens());
+		console.log(parser.parseProgram());
 	</script>
 </body>
 </html>
