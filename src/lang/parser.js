@@ -3,6 +3,7 @@ import TokenType from './token-type';
 import Lexer from './lexer';
 import AstNode from './ast-node';
 import RuleLang from './rule-lang';
+import SyntaxError from './syntax-error';
 
 const firstSet = RuleLang.firstSet;
 const followSet = RuleLang.followSet;

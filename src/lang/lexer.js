@@ -1,5 +1,6 @@
 import Token from './token';
 import TokenType from './token-type';
+import SyntaxError from './syntax-error';
 import StringReader from '../utils/string-reader';
 
 const syntaxError = (position) => {

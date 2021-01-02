@@ -19,5 +19,6 @@ export default class QueryGenerator {
 		}
 
 		// now we have our base query to solve
+		// we need to figure out what we're actually selecting
 	}
 }
