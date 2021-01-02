@@ -1,4 +1,4 @@
-import TokenType from '../lang/token-type';
+import AstType from '../lang/ast-type';
 
 export default class QueryGenerator {
 	constructor(ast) {
@@ -6,19 +6,28 @@ export default class QueryGenerator {
 	}
 
 	generateQuery(dataInfoMap) {
-		// we need to evaluate SELECT statements, for now we will evaluate only the first SELECT statement we run into
+		let command = this.ast.children[0].children[0];
+		
+		if (command.type == AstType.SELECT_STMT) {
 
-		let current = this.ast;
+		} else if (command.type == AstType.UPDATE_STMT) {
 
-		while (current.type != TokenType.SELECT) {
-			current = current.children[0];
+		} else if (command.type == AstType.DELETE_STMT) {
 
-			if (!current) {
-				break;
-			}
+		} else if (command.type == AstType.CREATE_STMT) {
+
+		} else if (command.type == AstType.DROP_STMT) {
+
+		} else if (command.type == AstType.CREATE_DB_STMT) {
+
+		} else if (command.type == AstType.USE_DB_STMT) {
+
+		} else if (command.type == AstType.ALTER_TABLE_STMT) {
+
+		} else if (command.type == AstType.INSERT_STMT) {
+
+		} else if (command.type == AstType.ASSIGNMENT_STMT) {
+
 		}
-
-		// now we have our base query to solve
-		// we need to figure out what we're actually selecting
 	}
 }
