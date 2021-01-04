@@ -4,7 +4,9 @@ import RULES from './lang/rules';
 import RuleLang from './lang/rule-lang';
 import Parser from './lang/parser';
 
+import QueryGenerator from './dbms/query-generator';
 
+export {QueryGenerator};
 export {Lexer};
 export {Parser};
 

@@ -16,7 +16,9 @@ let split = "|";
 let mode = "lowercase";
 let epsilon = "epsilon";
 
-let rules = parseProgram(RULES, split);
+let rulesWithoutComments = RULES.split("\n").filter(l => l.length && l.indexOf("//") != 0).join("\n");
+
+let rules = parseProgram(rulesWithoutComments, split);
 
 let terminals = extractTerminals(rules, mode, epsilon);
 

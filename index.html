@@ -6,11 +6,18 @@
 </head>
 <body>
 	<script type="text/javascript">
-		let lxr = new lightningSql.Lexer("SELECT * FROM demo_table");
+		// let lxr = new lightningSql.Lexer("SELECT * FROM demo_table");
+		let lxr = new lightningSql.Lexer("CREATE DATABASE demodb");
 
 		let parser = new lightningSql.Parser(lxr, {logMethods: true});
 
-		console.log(parser.parseProgram());
+		let ast = parser.parseProgram();
+
+		console.log(ast);
+
+		let queryGen = new lightningSql.QueryGenerator(ast);
+
+		console.log(queryGen.generateQuery());
 	</script>
 </body>
 </html>
