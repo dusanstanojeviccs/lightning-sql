@@ -1,3 +1,5 @@
+// longer rules should always be on top to prioritize them
+
 const RULES = 
 `
 TYPE_KEYWORD -> int
@@ -60,9 +62,9 @@ DELETE_STMT -> delete from COMPLEX_ID where EXPRESSION
 
 DROP_STMT -> drop_database id
 
-CREATE_STMT -> create_table id lbrace COLUMN_DEF_LIST rbrace SETTINGS_LIST
+CREATE_STMT -> create table id lbrace COLUMN_DEF_LIST rbrace SETTINGS_LIST
 
-CREATE_DB_STMT -> create_database id
+CREATE_DB_STMT -> create database id
 
 USE_DB_STMT -> use database id
 
@@ -71,8 +73,8 @@ ALTER_TABLE_STMT -> alter table id ALTER_MODIFICATION_LIST
 INSERT_STMT -> insert into id values INSERT_VALUES
 INSERT_STMT -> insert into id lbrace ID_LIST rbrace values INSERT_VALUES
 
-ID_LIST -> id
 ID_LIST -> id comma ID_LIST
+ID_LIST -> id
 
 INSERT_VALUES -> lbrace INSERT_VALUE_LIST rbrace
 INSERT_VALUES -> INSERT_VALUES comma INSERT_VALUES

@@ -6,11 +6,11 @@
 </head>
 <body>
 	<script type="text/javascript">
-		let lxr = new lightningSql.Lexer("CREATE TABLE demo_table (id int)");
+		let lxr = new lightningSql.Lexer("CREATE TABLE demo_table (id int AUTO_INCREMENT)");
 
 		// console.log(lxr.readAllTokens());
 
-		let parser = new lightningSql.Parser(lxr, {logMethods: true});
+		let parser = new lightningSql.Parser(lxr, {logMethods: false});
 
 		let ast = parser.parseProgram();
 

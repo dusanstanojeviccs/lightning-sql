@@ -208,9 +208,4 @@ TokenType.KEYWORDS = [
 	TokenType.TRANSACTION
 ];
 
-TokenType.OVERLAPPING_KEYWORDS = [
-	TokenType.CREATE,
-	TokenType.DROP
-];
-
 export default TokenType;

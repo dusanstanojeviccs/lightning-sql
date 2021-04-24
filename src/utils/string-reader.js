@@ -7,6 +7,15 @@ export default class StringReader {
 		this.EOF = EOF;
 	}
 
+	checkpoint() {
+		let checkpoint = new StringReader(this.str);
+
+		checkpoint.position = this.position;
+		checkpoint.EOF = this.EOF;
+
+		return checkpoint;
+	}
+
 	getPosition() {
 		return this.position;
 	}

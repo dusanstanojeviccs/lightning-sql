@@ -73,15 +73,11 @@ export default class Parser {
 
 		let token = this.lexer.getToken();
 
-		let appliedRule;
-
+	
 		// this is not right
 		// before picking the rule we have to check if the whole rule can be applied
 		// if not we need to unread tokens :'(
-		applicableRules.forEach(rule => {
-			if (!appliedRule) {
-				printRule(rule);
-
+		applicableRules = applicableRules.filter(rule => {
 				let firstSetOfTheRule = [];
 
 				for (let i = 0; i < rule.rhs.length; i++) {
@@ -103,71 +99,93 @@ export default class Parser {
 						}
 					}
 				}
-				if (firstSetOfTheRule.indexOf(token.type.toLowerCase()) > -1) {
-					appliedRule = rule;
-				}
-			}
+				return firstSetOfTheRule.indexOf(token.type.toLowerCase()) > -1;
 		});
 
 		if (this.logMethods) {
-			printRule(appliedRule);
+			console.log("      Apllicable", applicableRules);
 		}
 
 		// here we need to recursively parse the rule
 
-		if (appliedRule) {
-			this.lexer.ungetToken(token);
+		this.lexer.ungetToken(token);
+	
+		let isValid = false;
+		for (let r = 0; r < applicableRules.length; r++) {
+			// in reality we don't need to checkpoint
+			// we should have a callback for the getFoken to record all
+			// read tokens so that we can quickly push them back onto unread
+			// that way the actual parse will happen only 1s while maintaining
+			// the same API. Instante perf
+			let checkpoint = this.lexer.checkpoint();
 
-			for (let i = 0; i < appliedRule.rhs.length; i++) {
-				let elem = appliedRule.rhs[i];
+			if (!isValid) {
+				let appliedRule = applicableRules[r];
+				try {
+					let children = [];
+					for (let i = 0; i < appliedRule.rhs.length; i++) {
+						let elem = appliedRule.rhs[i];
 
-				token = this.lexer.getToken();
+						token = this.lexer.getToken();
 
-				if (nonTerminals.indexOf(elem) > -1) {
-					if (firstSet[elem].indexOf(token.type.toLowerCase()) > -1) {
-						// we found the element
-						// we need to create a new node to parse it
+						if (nonTerminals.indexOf(elem) > -1) {
+							if (firstSet[elem].indexOf(token.type.toLowerCase()) > -1) {
+								// we found the element
+								// we need to create a new node to parse it
 
-						this.lexer.ungetToken(token);
-						let newNode = new AstNode(elem);
+								this.lexer.ungetToken(token);
+								let newNode = new AstNode(elem);
 
-						let customParserMethod = "parse" + toCamelCase(elem);
+								let customParserMethod = "parse" + toCamelCase(elem);
 
-						if (this[customParserMethod]) {
-							this[customParserMethod](newNode).bind(this);
+								if (this[customParserMethod]) {
+									this[customParserMethod](newNode).bind(this);
+								} else {
+									this.parseRule(newNode);
+								}
+
+								children.push(newNode);
+							} else if (firstSet[elem].indexOf("epsilon") > -1 && followSet[elem].indexOf(token.type.toLowerCase())) { 
+								// does this element support epsilon
+								// we are basically skipping this by applying the rule goes to epsilon
+								// we have to unread
+								this.lexer.ungetToken(token);
+								continue; // this continues the loop through rhs
+							} else {
+								// this is a problem and a syntax exception
+								if (this.logMethods) {
+									console.log("we are parsing something that does not even star");
+								}
+								syntaxError(token.value);
+							}
 						} else {
-							this.parseRule(newNode);
-						}
+							// it's a terminal, let's check if it matches
 
-						node.children.push(newNode);
-					} else if (firstSet[elem].indexOf("epsilon") > -1 && followSet[elem].indexOf(token.type.toLowerCase())) { 
-						// does this element support epsilon
-						// we are basically skipping this by applying the rule goes to epsilon
-						// so nothing to do here
-						continue; // this continues the loop through rhs
-					} else {
-						// this is a problem and a syntax exception
-						if (this.logMethods) {
-							console.log("we are parsing something that does not even star");
+							if (elem == token.type.toLowerCase()) {
+								children.push(new AstNode(token.type, token.value));
+							} else {
+								if (this.logMethods) {
+									console.log("token does not match the rule");
+									printRule(appliedRule);
+									console.log("token", token);
+									console.log("elem", elem);
+								}
+								syntaxError(token.value);
+							}
 						}
-						syntaxError(token.value);
 					}
-				} else {
-					// it's a terminal, let's check if it matches
-
-					if (elem == token.type.toLowerCase()) {
-						node.children.push(new AstNode(token.type, token.value));
-					} else {
-						if (this.logMethods) {
-							console.log("token does not match the rule");
-						}
-						syntaxError(token.value);
-					}
+					node.children = children;
+					isValid = true;
+				} catch (e) {
+					this.lexer = checkpoint;
 				}
 			}
-		} else {
+		}
+		
+
+		if (!isValid) {
 			if (this.logMethods) {
-				console.log("no rule");
+				console.log("no rule found");
 			}
 			syntaxError(token.value);
 		}
