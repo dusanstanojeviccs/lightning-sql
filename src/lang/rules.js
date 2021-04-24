@@ -60,7 +60,7 @@ DELETE_STMT -> delete from COMPLEX_ID where EXPRESSION
 
 DROP_STMT -> drop_database id
 
-CREATE_STMT -> create_table id lbrace COLUMN_DEF_LIST rbrace
+CREATE_STMT -> create_table id lbrace COLUMN_DEF_LIST rbrace SETTINGS_LIST
 
 CREATE_DB_STMT -> create_database id
 
@@ -84,8 +84,8 @@ ALTER_MODIFICATION -> add column COLUMN_DEF
 ALTER_MODIFICATION -> remove column id
 ALTER_MODIFICATION -> change column id id COLUMN_DEF
 
-COLUMN_DEF -> id TYPE_KEYWORD auto_increment
-COLUMN_DEF -> id TYPE_KEYWORD
+COLUMN_DEF -> id TYPE_KEYWORD auto_increment SETTINGS_LIST
+COLUMN_DEF -> id TYPE_KEYWORD SETTINGS_LIST
 
 SETTINGS_STMT -> id eq id
 SETTINGS_LIST -> SETTINGS_STMT
