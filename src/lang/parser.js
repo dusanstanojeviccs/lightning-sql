@@ -76,8 +76,6 @@ export default class Parser {
 		let appliedRule, appliedRuleKeywordMatch = 0;
 
 		applicableRules.forEach(rule => {
-			console.log("CHECKING THE RULE");
-			printRule(rule);
 			if (!appliedRule) {
 				let firstSetOfTheRule = [];
 
@@ -108,7 +106,6 @@ export default class Parser {
 		});
 
 		if (this.logMethods) {
-			console.log("SELECTED");
 			printRule(appliedRule);
 		}
 
