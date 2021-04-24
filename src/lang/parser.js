@@ -73,10 +73,15 @@ export default class Parser {
 
 		let token = this.lexer.getToken();
 
-		let appliedRule, appliedRuleKeywordMatch = 0;
+		let appliedRule;
 
+		// this is not right
+		// before picking the rule we have to check if the whole rule can be applied
+		// if not we need to unread tokens :'(
 		applicableRules.forEach(rule => {
 			if (!appliedRule) {
+				printRule(rule);
+
 				let firstSetOfTheRule = [];
 
 				for (let i = 0; i < rule.rhs.length; i++) {
@@ -98,7 +103,6 @@ export default class Parser {
 						}
 					}
 				}
-
 				if (firstSetOfTheRule.indexOf(token.type.toLowerCase()) > -1) {
 					appliedRule = rule;
 				}
@@ -150,7 +154,7 @@ export default class Parser {
 					}
 				} else {
 					// it's a terminal, let's check if it matches
-					
+
 					if (elem == token.type.toLowerCase()) {
 						node.children.push(new AstNode(token.type, token.value));
 					} else {

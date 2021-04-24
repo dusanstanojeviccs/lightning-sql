@@ -43,14 +43,12 @@ export default class QueryGenerator {
 		} else if (command.type == AstType.CREATE_STMT) {
 			let operations = [];
 
-			console.log(command);
+			let dataToCreateTable = {
+				databaseName: command.children[1].value
+			};
 
-			// let dataToCreateTable = {
-			// 	databaseName: command.children[2].value;
-			// };
-
-			// operations.push(new Operation("createTable", dataToCreateTable));
-			
+			operations.push(new Operation("createTable", dataToCreateTable));
+		
 			return operations;
 		} else if (command.type == AstType.DROP_STMT) {
 
@@ -58,7 +56,7 @@ export default class QueryGenerator {
 			let operations = [];
 
 			let dataToCreateDB = {
-				databaseName: command.children[2].value
+				databaseName: command.children[1].value
 			};
 
 			operations.push(new Operation("createDatabase", dataToCreateDB));
