@@ -123,7 +123,64 @@ export default class Lexer {
 			
 			this.value += read;
 		}
+    
 		if (startChar != "`") {
+			// at this point if multiple keywords match we will need to read one more token
+			// and if that token is not a keyword that triggers the double match we need to rollback
+			if (TokenType.OVERLAPPING_KEYWORDS.indexOf(this.value.toUpperCase()) > -1) {
+				let read = this.input.getChar();
+				let secondWord = "";
+
+				if (read == " ") {
+					// we need to read one more word
+
+					while (true) {
+						read = this.input.getChar();
+						
+						if (read == this.input.EOF) {
+							this.input.ungetChar();
+							break;
+						}
+
+						// second word has to contain only letters
+						if (!isLetter(read)) {
+							this.input.ungetChar();
+							break;
+						}
+						
+						secondWord += read;
+					}
+					// the first char after has to be a space
+					read = this.input.getChar();
+					if (read == " ") {
+						// we need to undo a space read
+						this.input.ungetChar();
+						
+						let fullWord = this.value.toUpperCase() + "_" + secondWord.toUpperCase();
+					
+						if (TokenType.KEYWORDS.indexOf(fullWord) < 0) {
+							// we need to unread 
+							for (let i = 0; i < secondWord.length; i++) {
+								this.input.ungetChar();
+							}
+						} else {
+							this.value = fullWord;
+						}
+					} else {
+						// unread the space
+						this.input.ungetChar();
+
+						// unread the second word
+						for (let i = 0; i < secondWord.length; i++) {
+							this.input.ungetChar();
+						}
+					}
+				} else {
+					this.input.ungetChar();
+				}
+			}
+
+
 			let keywordPosition = TokenType.KEYWORDS.indexOf(this.value.toUpperCase());
 			if (keywordPosition >= 0) {
 				const keyWord = TokenType.KEYWORDS[keywordPosition];

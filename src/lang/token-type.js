@@ -6,6 +6,7 @@ const TokenType = {
 	WHERE: "WHERE",
 	INSERT: "INSERT",
 	INTO: "INTO",
+	CREATE: "CREATE",
 	CREATE_DATABASE: "CREATE_DATABASE",
 	CREATE_TABLE: "CREATE_TABLE",
 	DATABASE: "DATABASE",
@@ -205,6 +206,11 @@ TokenType.KEYWORDS = [
 	TokenType.AND,
 	TokenType.OR,
 	TokenType.TRANSACTION
+];
+
+TokenType.OVERLAPPING_KEYWORDS = [
+	TokenType.CREATE,
+	TokenType.DROP
 ];
 
 export default TokenType;
