@@ -9,13 +9,9 @@
 		// let lxr = new lightningSql.Lexer("SELECT * FROM demo_table");
 		let lxr = new lightningSql.Lexer("CREATE DATABASE demodb");
 
-		// console.log("Tokens", lxr.readAllTokens());
-
 		let parser = new lightningSql.Parser(lxr, {logMethods: true});
 
 		let ast = parser.parseProgram();
-
-		console.log(ast);
 
 		// let queryGen = new lightningSql.QueryGenerator(ast);
 
