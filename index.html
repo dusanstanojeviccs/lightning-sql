@@ -7,7 +7,9 @@
 <body>
 	<script type="text/javascript">
 		// let lxr = new lightningSql.Lexer("SELECT * FROM demo_table");
-		let lxr = new lightningSql.Lexer("CREATE DATABASE demodb");
+		let lxr = new lightningSql.Lexer("CREATE_DATABASE demodb");
+
+		// console.log("Tokens", lxr.readAllTokens());
 
 		let parser = new lightningSql.Parser(lxr, {logMethods: true});
 

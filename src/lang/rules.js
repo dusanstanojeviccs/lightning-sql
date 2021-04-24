@@ -59,11 +59,11 @@ UPDATE_STMT -> update TABLES set ASSIGNMENT_LIST
 
 DELETE_STMT -> delete from COMPLEX_ID where EXPRESSION
 
-DROP_STMT -> drop database id
+DROP_STMT -> drop_database id
 
-CREATE_STMT -> create table id lbrace COLUMN_DEF_LIST rbrace SETTINGS_LIST
+CREATE_STMT -> create_table id lbrace COLUMN_DEF_LIST rbrace SETTINGS_LIST
 
-CREATE_DB_STMT -> create database id
+CREATE_DB_STMT -> create_database id
 
 USE_DB_STMT -> use database id
 
