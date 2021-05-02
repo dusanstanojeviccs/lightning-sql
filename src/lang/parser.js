@@ -52,7 +52,25 @@ export default class Parser {
 
 		this.parseRule(programNode);
 
+		this.resolveRecurssion(programNode);
+		
 		return programNode;
+	}
+
+	resolveRecurssion(node) {
+		let toRemove = [];
+		let toAdd = [];
+		node.children.forEach(child => {
+			if (child.type == node.type) {
+				toRemove.push(child);
+				toAdd.push(child.children);
+			}
+		});
+
+		node.children = node.children.filter(child => toRemove.indexOf(child) < 0);
+		toAdd.forEach(children => children.forEach(child => node.children.push(child)));
+
+		node.children.forEach(child => this.resolveRecurssion(child));
 	}
 
 	parseRule(node, prevRule) {
