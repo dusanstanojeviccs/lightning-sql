@@ -7,6 +7,21 @@ export default class QueryGenerator {
 		this.ast = ast;
 	}
 
+	resolveComplexId(complexIdAstNode, arr) {
+		console.log(JSON.stringify(complexIdAstNode, null, 4));
+		arr = arr || [];
+		
+		if (complexIdAstNode.value) {
+			arr.push(complexIdAstNode.value)
+		} else {
+			complexIdAstNode.children.forEach(child => {
+				this.resolveComplexId(child, arr);
+			});
+		}
+
+		return arr;
+	}
+
 	generateQuery() {
 		let command = this.ast.children[0];
 
@@ -56,7 +71,7 @@ export default class QueryGenerator {
 			let operations = [];
 
 			let dataToCreateDB = {
-				databaseName: command.children[1].value
+				identifier: this.resolveComplexId(command.children[2])
 			};
 
 			operations.push(new Operation("createDatabase", dataToCreateDB));
