@@ -1,4 +1,4 @@
-let lightningSql = require("../dist/lightning-sql").lightningSql;
+let lightningSql = require("../../dist/lightning-sql").lightningSql;
 
 let query, result;
 

@@ -1,6 +1,6 @@
 let lightningSql = require("./dist/lightning-sql.js").lightningSql;
 
-let lxr = new lightningSql.Lexer("SELECT * FROM users WHERE id = 200");
+let lxr = new lightningSql.Lexer("UPDATE users SET name = 'demo' WHERE id = 200");
 
 let parser = new lightningSql.Parser(lxr, {logMethods: true});
 
