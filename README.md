@@ -5,22 +5,26 @@ Plan: SQL DBMS written fully in JavaScript
 # Done
 
 Lexer - 100%
+
 Parser - 100%
+
+Tests setup - 100%
+
+Lexer Tests - 80%
+
+Parser Tests - 80%
 
 Plugin architecture - 10%
 
 Storage module - 10%
 
-DBMS Engine - 10%
-
 # Working on
+
+DBMS Engine Example - 10%
 
 Website to demonstrate the Lexer - 0%
 
-Tests setup - 0%
-
 Documentation website - 0%
-
 
 # Lexer
 
