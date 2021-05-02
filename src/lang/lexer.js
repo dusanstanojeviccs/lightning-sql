@@ -141,7 +141,7 @@ export default class Lexer {
 			if (keywordPosition >= 0) {
 				const keyWord = TokenType.KEYWORDS[keywordPosition];
 
-				return new Token(this.line, keyWord, keyWord, this.value, from, this.input.getPosition());	
+				return new Token(this.line, keyWord, keyWord, from, this.input.getPosition());	
 			}
 		}
 
@@ -213,7 +213,6 @@ export default class Lexer {
 		switch(read) {
 			case "=":
 				return new Token(this.line, TokenType.EQ, "=", this.input.getPosition());
-				break;
 			case "<":
 				nextChar = this.input.getChar();
 				if (nextChar == "=") {
@@ -224,7 +223,6 @@ export default class Lexer {
 					this.input.ungetChar();
 				}
 				return new Token(this.line, TokenType.LT, "<", this.input.getPosition());
-				break;
 			case ">":
 				nextChar = this.input.getChar();
 				if (nextChar == "=") {
@@ -233,25 +231,18 @@ export default class Lexer {
 					this.input.ungetChar();
 				}
 				return new Token(this.line, TokenType.GT, ">", this.input.getPosition());
-				break;
 			case "(":
 				return new Token(this.line, TokenType.LBRACE, "(", this.input.getPosition());
-				break;
 			case ")":
 				return new Token(this.line, TokenType.RBRACE, ")", this.input.getPosition());
-				break;
 			case ";":
 				return new Token(this.line, TokenType.SEMICOLON, ";", this.input.getPosition());
-				break;
 			case ",":
 				return new Token(this.line, TokenType.COMMA, ",", this.input.getPosition());
-				break;
 			case ".":
 				return new Token(this.line, TokenType.PERIOD, ".", this.input.getPosition());
-				break;
 			case "*":
 				return new Token(this.line, TokenType.STAR, "*", this.input.getPosition());
-				break;
 			case "!":
 				nextChar = this.input.getChar();
 				if (nextChar == "=") {

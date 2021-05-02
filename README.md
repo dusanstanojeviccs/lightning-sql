@@ -5,7 +5,7 @@ Plan: SQL DBMS written fully in JavaScript
 # Done
 
 Lexer - 100%
-Parser - 90%
+Parser - 100%
 
 Plugin architecture - 10%
 

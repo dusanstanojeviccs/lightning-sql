@@ -3,12 +3,14 @@ import Lexer from './lang/lexer';
 import RULES from './lang/rules';
 import RuleLang from './lang/rule-lang';
 import Parser from './lang/parser';
+import Token from './lang/token';
 
 import QueryGenerator from './dbms/query-generator';
 
 export {QueryGenerator};
 export {Lexer};
 export {Parser};
+export {Token};
 
 export function testStringReader(str) {
 	let sr = new StringReader(str);

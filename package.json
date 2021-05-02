@@ -4,7 +4,8 @@
   "description": "SQL DBMS written fully in JavaScript - Lexer, Parser, Query Optimizer",
   "main": "src/index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/dusanstanojeviccs/lightning-sql#readme",
   "devDependencies": {
+    "jest": "^26.6.3",
     "webpack": "^5.9.0",
     "webpack-cli": "^4.2.0"
   },

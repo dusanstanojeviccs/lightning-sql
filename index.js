@@ -1,8 +1,6 @@
 let lightningSql = require("./dist/lightning-sql.js").lightningSql;
 
-let query = "SELECT * FROM users JOIN charts ON users.id = charts.user_id";
-
-let lxr = new lightningSql.Lexer(query);
+let lxr = new lightningSql.Lexer("SELECT * FROM users WHERE id = 200");
 
 let parser = new lightningSql.Parser(lxr, {logMethods: true});
 
