@@ -5,10 +5,13 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'lightning-sql.js',
-		library: 'lightningSql',
+		library: {
+			name: 'lightningSql',
+        	type: 'commonjs2',
+		}
 	},
 	optimization: {
 		minimize: false
 	},
-  watch: true
+	watch: true
 };

@@ -55,7 +55,9 @@ export default class Parser {
 		return programNode;
 	}
 
-	parseRule(node) {
+	parseRule(node, prevRule) {
+		// fun fact: a rule cannot parse itself
+
 		if (this.logMethods) {
 			console.log(`------------ Parsing ${node.type} ----------`);
 		}
@@ -78,28 +80,31 @@ export default class Parser {
 		// before picking the rule we have to check if the whole rule can be applied
 		// if not we need to unread tokens :'(
 		applicableRules = applicableRules.filter(rule => {
-				let firstSetOfTheRule = [];
+			if (prevRule == rule) {
+				return false;
+			}
+			let firstSetOfTheRule = [];
 
-				for (let i = 0; i < rule.rhs.length; i++) {
+			for (let i = 0; i < rule.rhs.length; i++) {
 
-					if (terminals.indexOf(rule.rhs[i]) > -1) {
-						firstSetOfTheRule.push(rule.rhs[i]);
-						break;
-					} else {
-						let currentFirstSet = firstSet[rule.rhs[i]];
+				if (terminals.indexOf(rule.rhs[i]) > -1) {
+					firstSetOfTheRule.push(rule.rhs[i]);
+					break;
+				} else {
+					let currentFirstSet = firstSet[rule.rhs[i]];
 
-						currentFirstSet.forEach(element => {
-							if (element != "epsilon") {
-								firstSetOfTheRule.push(element)
-							}
-						});
-
-						if (currentFirstSet.indexOf("epsilon") < 0) {
-							break;
+					currentFirstSet.forEach(element => {
+						if (element != "epsilon") {
+							firstSetOfTheRule.push(element)
 						}
+					});
+
+					if (currentFirstSet.indexOf("epsilon") < 0) {
+						break;
 					}
 				}
-				return firstSetOfTheRule.indexOf(token.type.toLowerCase()) > -1;
+			}
+			return firstSetOfTheRule.indexOf(token.type.toLowerCase()) > -1;
 		});
 
 		if (this.logMethods) {
@@ -141,7 +146,7 @@ export default class Parser {
 								if (this[customParserMethod]) {
 									this[customParserMethod](newNode).bind(this);
 								} else {
-									this.parseRule(newNode);
+									this.parseRule(newNode, i == 0 ? appliedRule : null);
 								}
 
 								children.push(newNode);
