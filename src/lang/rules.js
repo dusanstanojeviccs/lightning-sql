@@ -124,7 +124,6 @@ VALUE -> lbrace VALUE rbrace
 COMPLEX_ID -> id period COMPLEX_ID
 COMPLEX_ID -> id
 
-
 METHOD_CALL -> id lbrace VALUE rbrace
 METHOD_CALL -> id lbrace rbrace
 
