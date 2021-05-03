@@ -53,17 +53,12 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "ID_LIST",
+                            "type": "COMPLEX_ID",
                             "children": [
                                 {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "name",
-                                            "children": []
-                                        }
-                                    ]
+                                    "type": "ID",
+                                    "value": "name",
+                                    "children": []
                                 }
                             ]
                         }
@@ -133,5 +128,6 @@ test(query, () => {
 	let parser = new lightningSql.Parser(lxr);
 	expect(JSON.stringify(parser.parseProgram())).toBe(JSON.stringify(result));
 });
+
 
 

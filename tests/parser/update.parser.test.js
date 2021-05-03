@@ -206,35 +206,30 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "ASSIGNMENT_LIST",
+                            "type": "ASSIGNMENT_STMT",
                             "children": [
                                 {
-                                    "type": "ASSIGNMENT_STMT",
+                                    "type": "COMPLEX_ID",
                                     "children": [
                                         {
-                                            "type": "COMPLEX_ID",
-                                            "children": [
-                                                {
-                                                    "type": "ID",
-                                                    "value": "email",
-                                                    "children": []
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "EQ",
-                                            "value": "=",
+                                            "type": "ID",
+                                            "value": "email",
                                             "children": []
-                                        },
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "EQ",
+                                    "value": "=",
+                                    "children": []
+                                },
+                                {
+                                    "type": "VALUE",
+                                    "children": [
                                         {
-                                            "type": "VALUE",
-                                            "children": [
-                                                {
-                                                    "type": "STRING",
-                                                    "value": "demo@email.com",
-                                                    "children": []
-                                                }
-                                            ]
+                                            "type": "STRING",
+                                            "value": "demo@email.com",
+                                            "children": []
                                         }
                                     ]
                                 }
@@ -251,6 +246,7 @@ test(query, () => {
 	let parser = new lightningSql.Parser(lxr);
 	expect(JSON.stringify(parser.parseProgram())).toBe(JSON.stringify(result));
 });
+
 
 
 

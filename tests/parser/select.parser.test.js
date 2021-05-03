@@ -91,42 +91,12 @@ result = {
                     "type": "TABLES",
                     "children": [
                         {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "users",
-                                            "children": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
                             "type": "ANY_JOIN",
                             "children": [
                                 {
                                     "type": "JOIN",
                                     "value": "JOIN",
                                     "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "charts",
-                                            "children": []
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -158,14 +128,9 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
@@ -198,20 +163,35 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "user_id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "user_id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
                                             ]
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "users",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "charts",
+                                    "children": []
                                 }
                             ]
                         }
@@ -264,21 +244,6 @@ result = {
                     "type": "TABLES",
                     "children": [
                         {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "users",
-                                            "children": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
                             "type": "ANY_JOIN",
                             "children": [
                                 {
@@ -290,21 +255,6 @@ result = {
                                     "type": "JOIN",
                                     "value": "JOIN",
                                     "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "charts",
-                                            "children": []
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -336,14 +286,9 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
@@ -376,20 +321,35 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "user_id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "user_id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
                                             ]
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "users",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "charts",
+                                    "children": []
                                 }
                             ]
                         }
@@ -442,21 +402,6 @@ result = {
                     "type": "TABLES",
                     "children": [
                         {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "users",
-                                            "children": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
                             "type": "ANY_JOIN",
                             "children": [
                                 {
@@ -468,21 +413,6 @@ result = {
                                     "type": "JOIN",
                                     "value": "JOIN",
                                     "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "charts",
-                                            "children": []
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -514,14 +444,9 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
@@ -554,20 +479,35 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "user_id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "user_id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
                                             ]
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "users",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "charts",
+                                    "children": []
                                 }
                             ]
                         }
@@ -620,21 +560,6 @@ result = {
                     "type": "TABLES",
                     "children": [
                         {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "users",
-                                            "children": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
                             "type": "ANY_JOIN",
                             "children": [
                                 {
@@ -646,21 +571,6 @@ result = {
                                     "type": "JOIN",
                                     "value": "JOIN",
                                     "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "charts",
-                                            "children": []
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -692,14 +602,9 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
@@ -732,20 +637,35 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "user_id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "user_id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
                                             ]
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "users",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "charts",
+                                    "children": []
                                 }
                             ]
                         }
@@ -871,17 +791,12 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "TABLES",
+                            "type": "COMPLEX_ID",
                             "children": [
                                 {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "charts",
-                                            "children": []
-                                        }
-                                    ]
+                                    "type": "ID",
+                                    "value": "charts",
+                                    "children": []
                                 }
                             ]
                         }
@@ -939,35 +854,25 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "SELECT_VALUE_LIST",
+                            "type": "VALUE",
                             "children": [
                                 {
-                                    "type": "VALUE",
+                                    "type": "COMPLEX_ID",
                                     "children": [
                                         {
-                                            "type": "COMPLEX_ID",
-                                            "children": [
-                                                {
-                                                    "type": "ID",
-                                                    "value": "users",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "PERIOD",
-                                                    "value": ".",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "COMPLEX_ID",
-                                                    "children": [
-                                                        {
-                                                            "type": "ID",
-                                                            "value": "email",
-                                                            "children": []
-                                                        }
-                                                    ]
-                                                }
-                                            ]
+                                            "type": "ID",
+                                            "value": "users",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "PERIOD",
+                                            "value": ".",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "ID",
+                                            "value": "email",
+                                            "children": []
                                         }
                                     ]
                                 }
@@ -1047,35 +952,25 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "SELECT_VALUE_LIST",
+                            "type": "VALUE",
                             "children": [
                                 {
-                                    "type": "VALUE",
+                                    "type": "COMPLEX_ID",
                                     "children": [
                                         {
-                                            "type": "COMPLEX_ID",
-                                            "children": [
-                                                {
-                                                    "type": "ID",
-                                                    "value": "users",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "PERIOD",
-                                                    "value": ".",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "COMPLEX_ID",
-                                                    "children": [
-                                                        {
-                                                            "type": "ID",
-                                                            "value": "email",
-                                                            "children": []
-                                                        }
-                                                    ]
-                                                }
-                                            ]
+                                            "type": "ID",
+                                            "value": "users",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "PERIOD",
+                                            "value": ".",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "ID",
+                                            "value": "email",
+                                            "children": []
                                         }
                                     ]
                                 }
@@ -1092,42 +987,12 @@ result = {
                     "type": "TABLES",
                     "children": [
                         {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "users",
-                                            "children": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
                             "type": "ANY_JOIN",
                             "children": [
                                 {
                                     "type": "JOIN",
                                     "value": "JOIN",
                                     "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "charts",
-                                            "children": []
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -1159,14 +1024,9 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
@@ -1199,20 +1059,35 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "user_id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "user_id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
                                             ]
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "users",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "charts",
+                                    "children": []
                                 }
                             ]
                         }
@@ -1270,35 +1145,25 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "SELECT_VALUE_LIST",
+                            "type": "VALUE",
                             "children": [
                                 {
-                                    "type": "VALUE",
+                                    "type": "COMPLEX_ID",
                                     "children": [
                                         {
-                                            "type": "COMPLEX_ID",
-                                            "children": [
-                                                {
-                                                    "type": "ID",
-                                                    "value": "users",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "PERIOD",
-                                                    "value": ".",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "COMPLEX_ID",
-                                                    "children": [
-                                                        {
-                                                            "type": "ID",
-                                                            "value": "email",
-                                                            "children": []
-                                                        }
-                                                    ]
-                                                }
-                                            ]
+                                            "type": "ID",
+                                            "value": "users",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "PERIOD",
+                                            "value": ".",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "ID",
+                                            "value": "email",
+                                            "children": []
                                         }
                                     ]
                                 }
@@ -1315,21 +1180,6 @@ result = {
                     "type": "TABLES",
                     "children": [
                         {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "users",
-                                            "children": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
                             "type": "ANY_JOIN",
                             "children": [
                                 {
@@ -1341,21 +1191,6 @@ result = {
                                     "type": "JOIN",
                                     "value": "JOIN",
                                     "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "charts",
-                                            "children": []
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -1387,14 +1222,9 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
@@ -1427,20 +1257,35 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "user_id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "user_id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
                                             ]
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "users",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "charts",
+                                    "children": []
                                 }
                             ]
                         }
@@ -1498,35 +1343,25 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "SELECT_VALUE_LIST",
+                            "type": "VALUE",
                             "children": [
                                 {
-                                    "type": "VALUE",
+                                    "type": "COMPLEX_ID",
                                     "children": [
                                         {
-                                            "type": "COMPLEX_ID",
-                                            "children": [
-                                                {
-                                                    "type": "ID",
-                                                    "value": "users",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "PERIOD",
-                                                    "value": ".",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "COMPLEX_ID",
-                                                    "children": [
-                                                        {
-                                                            "type": "ID",
-                                                            "value": "email",
-                                                            "children": []
-                                                        }
-                                                    ]
-                                                }
-                                            ]
+                                            "type": "ID",
+                                            "value": "users",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "PERIOD",
+                                            "value": ".",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "ID",
+                                            "value": "email",
+                                            "children": []
                                         }
                                     ]
                                 }
@@ -1543,21 +1378,6 @@ result = {
                     "type": "TABLES",
                     "children": [
                         {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "users",
-                                            "children": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
                             "type": "ANY_JOIN",
                             "children": [
                                 {
@@ -1569,21 +1389,6 @@ result = {
                                     "type": "JOIN",
                                     "value": "JOIN",
                                     "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "charts",
-                                            "children": []
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -1615,14 +1420,9 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
@@ -1655,20 +1455,35 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "user_id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "user_id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
                                             ]
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "users",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "charts",
+                                    "children": []
                                 }
                             ]
                         }
@@ -1726,35 +1541,25 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "SELECT_VALUE_LIST",
+                            "type": "VALUE",
                             "children": [
                                 {
-                                    "type": "VALUE",
+                                    "type": "COMPLEX_ID",
                                     "children": [
                                         {
-                                            "type": "COMPLEX_ID",
-                                            "children": [
-                                                {
-                                                    "type": "ID",
-                                                    "value": "users",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "PERIOD",
-                                                    "value": ".",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "COMPLEX_ID",
-                                                    "children": [
-                                                        {
-                                                            "type": "ID",
-                                                            "value": "email",
-                                                            "children": []
-                                                        }
-                                                    ]
-                                                }
-                                            ]
+                                            "type": "ID",
+                                            "value": "users",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "PERIOD",
+                                            "value": ".",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "ID",
+                                            "value": "email",
+                                            "children": []
                                         }
                                     ]
                                 }
@@ -1771,21 +1576,6 @@ result = {
                     "type": "TABLES",
                     "children": [
                         {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "users",
-                                            "children": []
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
                             "type": "ANY_JOIN",
                             "children": [
                                 {
@@ -1797,21 +1587,6 @@ result = {
                                     "type": "JOIN",
                                     "value": "JOIN",
                                     "children": []
-                                }
-                            ]
-                        },
-                        {
-                            "type": "TABLES",
-                            "children": [
-                                {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "charts",
-                                            "children": []
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -1843,14 +1618,9 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
@@ -1883,20 +1653,35 @@ result = {
                                                             "children": []
                                                         },
                                                         {
-                                                            "type": "COMPLEX_ID",
-                                                            "children": [
-                                                                {
-                                                                    "type": "ID",
-                                                                    "value": "user_id",
-                                                                    "children": []
-                                                                }
-                                                            ]
+                                                            "type": "ID",
+                                                            "value": "user_id",
+                                                            "children": []
                                                         }
                                                     ]
                                                 }
                                             ]
                                         }
                                     ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "users",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "type": "COMPLEX_ID",
+                            "children": [
+                                {
+                                    "type": "ID",
+                                    "value": "charts",
+                                    "children": []
                                 }
                             ]
                         }
@@ -1954,35 +1739,25 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "SELECT_VALUE_LIST",
+                            "type": "VALUE",
                             "children": [
                                 {
-                                    "type": "VALUE",
+                                    "type": "COMPLEX_ID",
                                     "children": [
                                         {
-                                            "type": "COMPLEX_ID",
-                                            "children": [
-                                                {
-                                                    "type": "ID",
-                                                    "value": "users",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "PERIOD",
-                                                    "value": ".",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "COMPLEX_ID",
-                                                    "children": [
-                                                        {
-                                                            "type": "ID",
-                                                            "value": "email",
-                                                            "children": []
-                                                        }
-                                                    ]
-                                                }
-                                            ]
+                                            "type": "ID",
+                                            "value": "users",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "PERIOD",
+                                            "value": ".",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "ID",
+                                            "value": "email",
+                                            "children": []
                                         }
                                     ]
                                 }
@@ -2062,35 +1837,25 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "SELECT_VALUE_LIST",
+                            "type": "VALUE",
                             "children": [
                                 {
-                                    "type": "VALUE",
+                                    "type": "COMPLEX_ID",
                                     "children": [
                                         {
-                                            "type": "COMPLEX_ID",
-                                            "children": [
-                                                {
-                                                    "type": "ID",
-                                                    "value": "users",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "PERIOD",
-                                                    "value": ".",
-                                                    "children": []
-                                                },
-                                                {
-                                                    "type": "COMPLEX_ID",
-                                                    "children": [
-                                                        {
-                                                            "type": "ID",
-                                                            "value": "email",
-                                                            "children": []
-                                                        }
-                                                    ]
-                                                }
-                                            ]
+                                            "type": "ID",
+                                            "value": "users",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "PERIOD",
+                                            "value": ".",
+                                            "children": []
+                                        },
+                                        {
+                                            "type": "ID",
+                                            "value": "email",
+                                            "children": []
                                         }
                                     ]
                                 }
@@ -2122,17 +1887,12 @@ result = {
                             "children": []
                         },
                         {
-                            "type": "TABLES",
+                            "type": "COMPLEX_ID",
                             "children": [
                                 {
-                                    "type": "COMPLEX_ID",
-                                    "children": [
-                                        {
-                                            "type": "ID",
-                                            "value": "charts",
-                                            "children": []
-                                        }
-                                    ]
+                                    "type": "ID",
+                                    "value": "charts",
+                                    "children": []
                                 }
                             ]
                         }
@@ -2166,14 +1926,9 @@ result = {
                                                     "children": []
                                                 },
                                                 {
-                                                    "type": "COMPLEX_ID",
-                                                    "children": [
-                                                        {
-                                                            "type": "ID",
-                                                            "value": "id",
-                                                            "children": []
-                                                        }
-                                                    ]
+                                                    "type": "ID",
+                                                    "value": "id",
+                                                    "children": []
                                                 }
                                             ]
                                         }
@@ -2206,14 +1961,9 @@ result = {
                                                     "children": []
                                                 },
                                                 {
-                                                    "type": "COMPLEX_ID",
-                                                    "children": [
-                                                        {
-                                                            "type": "ID",
-                                                            "value": "user_id",
-                                                            "children": []
-                                                        }
-                                                    ]
+                                                    "type": "ID",
+                                                    "value": "user_id",
+                                                    "children": []
                                                 }
                                             ]
                                         }
@@ -2232,6 +1982,3 @@ test(query, () => {
 	let parser = new lightningSql.Parser(lxr);
 	expect(JSON.stringify(parser.parseProgram())).toBe(JSON.stringify(result));
 });
-
-
-

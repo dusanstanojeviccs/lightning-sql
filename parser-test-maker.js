@@ -1,8 +1,8 @@
 let lightningSql = require("./dist/lightning-sql").lightningSql;
 
 let queries = [
-	"UPDATE users SET name = 'demo' WHERE id = 200",
-	"UPDATE users SET name = 'demo', email='demo@email.com' WHERE id IN (SELECT user_id FROM demo_users)"
+	"DELETE FROM db.users",
+	"DROP TABLE db.users"
 ];
 
 
